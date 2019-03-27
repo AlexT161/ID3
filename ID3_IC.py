@@ -16,8 +16,31 @@ class ID3(object):
 		self.arbol(self.listaAtributos,self.listaEjemplos)
 
 	def arbol(self,listaAtributos,listaEjemplos):
-		print (self.listaAtributos)
-		print (self.listaEjemplos)
+		#Si lista-ejemplos está vacía, "regresar"; en caso contrario, seguir.
+		if (listaEjemplos == 0):
+			return
+		# Si todos los ejemplos en lista-ejemplos son +, devolver "+"; de otro modo seguir
+		# Si todos los ejemplos en lista-ejemplos son -, devolver "-"; de otro modo seguir
+		N = len(listaAtributos)
+		positivos = 0
+		negativos = 0
+		for j in range(0,len(listaEjemplos)):
+			if listaEjemplos[j][N-1] == "si":
+				positivos += 1
+			elif listaEjemplos[j][N-1] == "no":
+				negativos += 1
+			else:
+				print(evaluar)
+		if positivos == 0:
+			return ("no")
+		if negativos == 0:
+			return ("si")
+		print(positivos)
+		print(negativos)
+		##hallarMerito
+		##escogerAtributo
+		print (listaAtributos)
+		print (listaEjemplos)
 
 def leerArchivo(archivo):
 	archivo = open(archivo)
@@ -27,8 +50,6 @@ def leerArchivo(archivo):
 
 def main():
 	id3 = ID3()
-	print("lista de Ejemplos:"'\n')
-	print(id3)
 
 if __name__ == '__main__':
 	main()
